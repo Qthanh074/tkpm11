@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-TKPM-46f875ad-7e95-45d9-9e8a-7606fd19cc9b</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.18" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.18" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.18" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,33 @@
+﻿@model IEnumerable<TKPM.Models.Product>
+
+@{
+    ViewData["Title"] = "Quản lý sản phẩm";
+}
+
+<h2>Quản lý sản phẩm</h2>
+<a asp-controller="Products" asp-action="Create" class="btn btn-success mb-3">Thêm sản phẩm</a>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Tên</th>
+            <th>Giá</th>
+            <th>Hình ảnh</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Price.ToString("N0")</td>
+                <td><img src="@item.ImageUrl" alt="@item.Name" width="80" /></td>
+                <td>
+                    <a asp-controller="Products" asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning btn-sm">Sửa</a>
+                    <a asp-controller="Products" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

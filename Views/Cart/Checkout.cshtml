@@ -1,0 +1,36 @@
+﻿@model IEnumerable<TKPM.Models.CartItem>
+
+@{
+    ViewData["Title"] = "Thanh toán";
+}
+
+<div class="container mt-4">
+    <h2>💳 Thanh toán</h2>
+
+    <form asp-action="CheckoutConfirm" method="post">
+        <div class="mb-3">
+            <label>Họ và tên</label>
+            <input type="text" name="FullName" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label>Địa chỉ giao hàng</label>
+            <input type="text" name="Address" class="form-control" required />
+        </div>
+        <div class="mb-3">
+            <label>Số điện thoại</label>
+            <input type="text" name="Phone" class="form-control" required />
+        </div>
+
+        <h4>Danh sách sản phẩm:</h4>
+        <ul class="list-group mb-3">
+            @foreach (var item in Model)
+            {
+                <li class="list-group-item">
+                    @item.Product.Name - SL: @item.Quantity - @((item.Price * item.Quantity).ToString("N0")) đ
+                </li>
+            }
+        </ul>
+
+        <button type="submit" class="btn btn-primary w-100">✅ Xác nhận đặt hàng</button>
+    </form>
+</div>

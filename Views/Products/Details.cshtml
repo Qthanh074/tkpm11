@@ -1,0 +1,12 @@
+﻿@model TKPM.Models.Product
+
+<h2>Chi tiết sản phẩm</h2>
+
+<div>
+    <img src="@Model.ImageUrl" alt="@Model.Name" style="width:150px;height:auto;" />
+    <h3>@Model.Name</h3>
+    <p><b>Giá:</b> @Model.Price.ToString("C")</p>
+    <p><b>Mô tả:</b> @Model.Description</p>
+</div>
+
+<a asp-action="Index" class="btn btn-secondary">Quay lại</a>

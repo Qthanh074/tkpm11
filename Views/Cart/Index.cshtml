@@ -1,0 +1,37 @@
+﻿@model IEnumerable<TKPM.Models.CartItem>
+
+@{
+    ViewData["Title"] = "Giỏ hàng";
+}
+
+<div class="container mt-4">
+    <h2>🛒 Giỏ hàng của bạn</h2>
+    <table class="table table-bordered mt-3">
+        <thead class="table-primary">
+            <tr>
+                <th>Ảnh</th>
+                <th>Sản phẩm</th>
+                <th>Số lượng</th>
+                <th>Giá</th>
+                <th>Tổng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td><img src="@item.Product.ImageUrl" width="80" /></td>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Price.ToString("N0") đ</td>
+                    <td>@(item.Quantity* item.Price) đ</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="d-flex justify-content-between mt-3">
+        <a asp-action="AddSampleProducts" class="btn btn-secondary">➕ Thêm sản phẩm mẫu</a>
+        <a asp-action="Checkout" class="btn btn-success">💳 Thanh toán</a>
+    </div>
+</div>

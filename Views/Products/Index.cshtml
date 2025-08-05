@@ -1,0 +1,35 @@
+﻿@model IEnumerable<TKPM.Models.Product>
+
+<h2>Danh sách sản phẩm</h2>
+<a asp-action="Create" class="btn btn-primary">Thêm sản phẩm mới</a>
+<table class="table table-bordered mt-3">
+    <thead>
+        <tr>
+            <th>Ảnh</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Mô tả</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td><img src="@p.ImageUrl" alt="@p.Name" style="width:80px;height:auto;" /></td>
+                <td>@p.Name</td>
+                <td>@p.Price.ToString("C")</td>
+                <td>@p.Description</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@p.Id" class="btn btn-info">Chi tiết</a>
+                    <a asp-action="Edit" asp-route-id="@p.Id" class="btn btn-warning">Sửa</a>
+                    <a asp-action="Delete" asp-route-id="@p.Id" class="btn btn-danger">Xóa</a>
+                    <form asp-action="AddToCart" asp-controller="Cart" method="post" style="display:inline;">
+                        <input type="hidden" name="productId" value="@p.Id" />
+                        <button type="submit" class="btn btn-success">Thêm vào giỏ</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
